@@ -1,0 +1,24 @@
+<h1>My Orders</h1>
+<div class="card">
+  <div class="card-title">You have orders.</div>
+  <div class="card-body">    
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Customer</th>   
+            <th>Order Time</th> 
+            <th>Order Detail</th>  
+            <th>Shipping</th>  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">             
+            <td>{{ order.shipping.name }}</td>
+            <td>{{ order.orderAt | date:'short' }}</td>
+            <td> <a routerLink="/myorders/{{order.id}}">Order Detail</a></td>            
+            <td><button>Shipping</button></td>
+          </tr>             
+        </tbody>
+      </table>     
+  </div>  
+</div>

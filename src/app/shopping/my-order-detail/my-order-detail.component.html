@@ -1,0 +1,21 @@
+<h1>Order Detail</h1>
+<button (click)="goBack()">go back</button>
+<div *ngIf="order" class="card">  
+  <div class="card-body">    
+    <ul>
+      <li>Customer: {{ order.userId }}</li>
+      <li>Order Time: {{ order.orderAt | date:'short' }}</li>
+      <li>Shipping: 
+        <ul>
+          <li>Name: {{ order.shipping.name }} </li>
+          <li>Address: {{ order.shipping.addressLine1 + order.shipping.addressLine2 }} </li>
+          <li>city: {{ order.shipping.city }} </li>          
+        </ul>
+      </li>
+      <li>Items:
+        <ul>
+          <li *ngFor="let item of order.items">{{ item.title }} X {{ item.quantity }}</li>
+        </ul>
+      </li>
+    </ul>
+</div>

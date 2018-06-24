@@ -1,0 +1,24 @@
+<div class="container">
+   <p><a routerLink="/admin/newproduct" class="btn btn-primary">New Product</a></p>     
+   <p><input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search..."></p>
+    <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Price</th>
+                <th></th>  
+                <th></th>  
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of filteredProducts">      
+                <td><img [src]="product.imageUrl" class="productincart-img"></td>        
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td> <a routerLink="/admin/adminproducts/{{ product.id }}">Edit</a></td>
+                <td> <button (click)="deleteProduct(product.id)">Delete</button></td>
+              </tr>              
+            </tbody>
+          </table>  
+</div>

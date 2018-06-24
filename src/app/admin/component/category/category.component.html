@@ -1,0 +1,39 @@
+<div class="container">
+    <p>
+        <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          New Category
+        </button>
+      </p>
+      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="card">
+          <div class="card-body">
+              <app-new-category></app-new-category>  
+          </div>
+        </div>
+      </div>   
+
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Width</th>
+        <th>Length</th>
+        <th></th>  
+        <th></th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">               
+        <td>{{ category.name }}</td>
+        <td>{{ category.width }}</td>
+        <td>{{ category.length }}</td>
+        <td> <button (click)="onEdit(category)">Edit</button></td>
+        <td> <button (click)="deleteCategory(category.id)">Delete</button></td>
+      </tr>              
+    </tbody>
+  </table>   
+  <br><br>      
+  <app-edit-category [category]="selectedCategory"></app-edit-category>
+</div>
+
